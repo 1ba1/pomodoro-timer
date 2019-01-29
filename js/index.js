@@ -16,10 +16,19 @@ const minusWork = document.getElementById('minusWork'),
   sec = document.getElementById('sec'),
   start = document.getElementById('start'),
   pause = document.getElementById('pause'),
-  alarm = document.createElement('audio'),
-  pad = n => n < 10 ? '0' + n : n;
+  reset = document.getElementById('reset'),
+  alarm = document.createElement('audio');
 
 alarm.setAttribute('src', 'http://www.soundjay.com/button/beep-07.mp3');
+
+const pad = n => n < 10 ? '0' + n : n;
+
+const toggleSettings = () => {
+  minusWork.classList.toggle('disabled');
+  plusWork.classList.toggle('disabled');
+  minusBreak.classList.toggle('disabled');
+  plusBreak.classList.toggle('disabled');
+};
 
 const decrementWorkTime = () => {
   if (workTime > 1) {
@@ -51,22 +60,26 @@ minusWork.onclick = () => {
   decrementWorkTime();
   setWork.textContent = pad(workTime);
   min.textContent = pad(workTime);
+  sec.textContent = '00';
 };
 
 plusWork.onclick = () => {
   incrementWorkTime();
   setWork.textContent = pad(workTime);
   min.textContent = pad(workTime);
+  sec.textContent = '00';
 };
 
 minusBreak.onclick = () => {
   decrementBreakTime();
   setBreak.textContent = pad(breakTime);
+  sec.textContent = '00';
 };
 
 plusBreak.onclick = () => {
   incrementBreakTime();
   setBreak.textContent = pad(breakTime);
+  sec.textContent = '00';
 };
 
 start.onclick = () => {
@@ -80,8 +93,21 @@ start.onclick = () => {
     min.textContent = pad(Math.floor(time / 60));
     sec.textContent = pad(time % 60);
   }, 1000);
+  toggleSettings();
 };
 
 pause.onclick = () => {
   clearInterval(timer);
+  toggleSettings();
+};
+
+reset.onclick = () => {
+  clearInterval(timer);
+  min.textContent = pad(workTime);
+  sec.textContent = '00';
+  time = workTime * 60;
+  minusWork.classList.remove('disabled');
+  plusWork.classList.remove('disabled');
+  minusBreak.classList.remove('disabled');
+  plusBreak.classList.remove('disabled');
 };

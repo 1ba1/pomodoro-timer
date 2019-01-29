@@ -1,5 +1,7 @@
 #container {
   border: 1px solid #ff0000;
+  border-radius: 50%;
+  box-shadow: #ff0000 0 0 8px;
   height: 30rem;
   width: 30rem;
   margin: 5rem auto;
@@ -8,10 +10,10 @@
   justify-content: space-around;
   align-items: center;
   font-family: 'Anonymous Pro', monospace;
+  color: #5a5c58;
 }
 
 #time {
-  border: 1px solid #008000;
   height: 8rem;
   width: 60%;
   font-size: 4rem;
@@ -36,20 +38,19 @@
 }
 
 #controls {
-  margin: -2rem 0 -2rem 0;
+  margin: -6rem 0 -5rem 0;
 }
 
-#start, #pause {
+#start, #pause, #reset {
   float: left;
   font-size: 1.5rem;
 }
 
-#pause {
+#pause, #reset {
   margin-left: 2rem;
 }
 
 #settings {
-  border: 1px solid #008000;
   height: 5rem;
   width: 80%;
   display: flex;
@@ -59,11 +60,15 @@
 }
 
 #setWork, #setBreak {
-  margin: 0 -2rem 0 -2rem;
+  margin: 0 -4rem 0 -4rem;
 }
 
-#start:hover, #pause:hover, #minusWork:hover, #plusWork:hover,
+#start:hover, #pause:hover, #reset:hover, #minusWork:hover, #plusWork:hover,
 #minusBreak:hover, #plusBreak:hover {
   cursor: pointer;
   color: #ff0000;
+}
+
+.disabled {
+  pointer-events: none;
 }
