@@ -19,9 +19,15 @@ const minusWork = document.getElementById('minusWork'),
   reset = document.getElementById('reset'),
   alarm = document.createElement('audio');
 
-alarm.setAttribute('src', 'http://www.soundjay.com/button/beep-07.mp3');
+alarm.setAttribute('src', 'https://www.soundjay.com/button/beep-07.mp3');
+
+pause.classList.add('disabled');
 
 const pad = n => n < 10 ? '0' + n : n;
+
+const togglePause = () => {
+  pause.classList.toggle('disabled');
+};
 
 const toggleSettings = () => {
   minusWork.classList.toggle('disabled');
@@ -93,11 +99,13 @@ start.onclick = () => {
     min.textContent = pad(Math.floor(time / 60));
     sec.textContent = pad(time % 60);
   }, 1000);
+  togglePause();
   toggleSettings();
 };
 
 pause.onclick = () => {
   clearInterval(timer);
+  togglePause();
   toggleSettings();
 };
 
@@ -110,4 +118,5 @@ reset.onclick = () => {
   plusWork.classList.remove('disabled');
   minusBreak.classList.remove('disabled');
   plusBreak.classList.remove('disabled');
+  pause.classList.add('disabled');
 };
