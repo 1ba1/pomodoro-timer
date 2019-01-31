@@ -17,6 +17,7 @@ const minusWork = document.getElementById('minusWork'),
   start = document.getElementById('start'),
   pause = document.getElementById('pause'),
   reset = document.getElementById('reset'),
+  label = document.getElementById('label'),
   alarm = document.createElement('audio');
 
 alarm.setAttribute('src', 'https://www.soundjay.com/button/beep-07.mp3');
@@ -94,11 +95,12 @@ start.onclick = () => {
     if (time % 60 < 0) {
       !isBreak ? isBreak = true : isBreak = false;
       !isBreak ? time = workTime * 60 : time = breakTime * 60;
+      !isBreak ? label.textContent = 'Work' : label.textContent = 'Break';
       alarm.play();
     }
     min.textContent = pad(Math.floor(time / 60));
     sec.textContent = pad(time % 60);
-  }, 1000);
+  }, 100);
   togglePause();
   toggleSettings();
 };

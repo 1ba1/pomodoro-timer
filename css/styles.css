@@ -13,6 +13,11 @@
   color: #5a5c58;
 }
 
+#label {
+  font-size: 2rem;
+  margin-bottom: -10rem;
+}
+
 #time {
   height: 8rem;
   width: 60%;
@@ -38,7 +43,7 @@
 }
 
 #controls {
-  margin: -6rem 0 -5rem 0;
+  margin: -7rem 0 -5rem 0;
 }
 
 #start, #pause, #reset {
@@ -48,6 +53,23 @@
 
 #pause, #reset {
   margin-left: 2rem;
+}
+
+.labels {
+  margin-bottom: -9rem;
+}
+
+.labels div {
+  float: left;
+  font-size: 1.5rem;
+}
+
+.labels div:nth-of-type(1) {
+  margin-left: 0.1rem;
+}
+
+.labels div:nth-of-type(2) {
+  margin-left: 8.2rem;
 }
 
 #settings {
