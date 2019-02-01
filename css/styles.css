@@ -1,16 +1,25 @@
+body {
+  font-family: 'Anonymous Pro', monospace;
+  color: #5a5c58;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 2.5rem;
+}
+
 #container {
   border: 1px solid #ff0000;
   border-radius: 50%;
   box-shadow: #ff0000 0 0 8px;
   height: 30rem;
   width: 30rem;
-  margin: 5rem auto;
+  margin: 3rem auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-family: 'Anonymous Pro', monospace;
-  color: #5a5c58;
 }
 
 #label {
@@ -61,15 +70,15 @@
 
 .labels div {
   float: left;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .labels div:nth-of-type(1) {
-  margin-left: 0.1rem;
+  margin-left: 0.4rem;
 }
 
 .labels div:nth-of-type(2) {
-  margin-left: 8.2rem;
+  margin-left: 8.8rem;
 }
 
 #settings {
